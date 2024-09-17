@@ -1,0 +1,42 @@
+.table_wrapper {
+  //padding: 16px;
+  border: solid 1px rgba(180, 198, 235, 0.344);
+  border-radius: 8px;
+  overflow: auto;
+  border-collapse: collapse !important;
+
+  table {
+    width: 100%;
+  }
+
+  .table__cell {
+    max-width: 200px;
+  }
+
+  thead {
+    background-color: rgba(194, 209, 238, 0.235);
+    color: var(--black);
+    text-transform: capitalize;
+    tr {
+      th {
+        text-align: left;
+        font-weight: 500;
+        padding: 20px 24px;
+      }
+    }
+  }
+
+  tbody {
+    font-size: var(--fs-text-md);
+    color: var(--black);
+    tr {
+      border-bottom: solid 1px rgba(180, 198, 235, 0.344);
+      td {
+        padding: 20px 24px;
+      }
+    }
+    tr:last-of-type {
+      border-bottom: solid 1px white;
+    }
+  }
+}

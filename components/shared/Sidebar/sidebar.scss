@@ -1,0 +1,24 @@
+.group-label {
+  user-select: none;
+  cursor: pointer;
+
+  .icon {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: transform 250ms ease;
+  }
+
+  &.open .icon {
+    transform: rotate(0);
+  }
+}
+
+.group-label + .nav-group__list {
+  max-height: 0;
+  overflow-y: hidden;
+  transition: max-height 300ms ease;
+}
+
+.group-label.open + .nav-group__list {
+  max-height: 100%;
+}

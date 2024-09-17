@@ -1,0 +1,13 @@
+<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
+  fill="currentColor">
+  <defs>
+    <style>
+      .cls-1,.cls-2,.cls-3{fill:none;stroke:#fff;strokeWidth:6px;}.cls-1,.cls-2{stroke-linejoin:round;}.cls-2{strokeLinecap:square;}.cls-3{stroke-miterlimit:10;}</style>
+  </defs>
+  <line class="cls-1" x1="15.79" y1="43.07" x2="15.79" y2="28.07" />
+  <polyline class="cls-1" points="80.79 43.07 80.79 83.07 15.79 83.07 15.79 43.07" />
+  <polyline class="cls-2" points="9.41 49.47 47.95 11.07 86.51 49.47" />
+  <circle class="cls-3" cx="48" cy="52.73" r="9.53" />
+  <path class="cls-3"
+    d="M32.11,82.82A13.58,13.58,0,0,1,45.69,69.24h4.54A13.58,13.58,0,0,1,63.81,82.82" />
+</svg>
