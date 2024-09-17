@@ -93,6 +93,7 @@ export const ListBlogWrapper = ({ blogs, properties, agents, categories }: Props
                 price={p.price}
                 currency={p.currency}
                 property_amenities={p.property_amenities}
+                leasing={p.leasing}
               />
             ))}
           </div>
