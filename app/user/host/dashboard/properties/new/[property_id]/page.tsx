@@ -75,6 +75,7 @@ function AddProductDetails() {
     refetchProperty,
     getActive()?.label || '',
     property?.images ?? [],
+    property?.name as string,
   );
 
   const { data: amenities } = useAmenity(200);
@@ -106,7 +107,7 @@ function AddProductDetails() {
     }
 
     if (getActive()?.label === 'Publish') {
-      onUpdateProperty({ status: 'PENDING', published: true });
+      await onAsyncUpdateProperty({ status: 'PENDING', published: true });
       router.push(ROUTES.USER.HOST.DASHBOARD.PROPERTIES);
     }
 
@@ -134,6 +135,7 @@ function AddProductDetails() {
 
     obj.hideAddress = hideAddress;
     obj.availability = availability;
+    obj.negotiable = negotiable;
     obj.attributes = propertyAttributes;
 
     if (getActive()?.label === 'Review' && skipNext) {
@@ -255,7 +257,9 @@ function AddProductDetails() {
             )}
             {getActive()?.label === 'Publish' && (
               <div className="flex flex-col gap-10">
-                <ImageSlider images={property?.images || []} />
+                <ImageSlider
+                  images={sortImagesInOrder(property?.images || []).filter(Boolean) as string[]}
+                />
                 <PropertyInfoDetails type={property?.leasing} property={property} />
               </div>
             )}

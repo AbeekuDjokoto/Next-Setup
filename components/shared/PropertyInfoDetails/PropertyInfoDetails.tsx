@@ -58,7 +58,7 @@ export function PropertyInfoDetails({ property, type = 'FOR RENT' }: Props) {
 
   const propertyDefaultAmenities = getAmenitiesProperties(
     defaultAmenities,
-    property?.amenities,
+    property?.property_amenities,
     true,
   );
 
@@ -191,7 +191,7 @@ export function PropertyInfoDetails({ property, type = 'FOR RENT' }: Props) {
                 {item.name.startsWith('Bath') ? <BathIcon width="30" height="30" /> : null}
                 {item.name.startsWith('Park') ? <ParkingIcon width="30" height="30" /> : null}
                 <p className="">
-                  {item?.data?.value}
+                  {item?.data?.value ?? item?.value}
                   {/* {item?.amenity?.name} */}
                 </p>
               </div>
@@ -205,7 +205,7 @@ export function PropertyInfoDetails({ property, type = 'FOR RENT' }: Props) {
         </div> */}
         <div className="grid gap-2">
           <h3 className="text-lg uppercase font-bold">Description</h3>
-          <p className="text-sm leading-6 break-all">{property?.desc}</p>
+          <p className="text-sm leading-6 break-all whitespace-pre-wrap">{property?.desc}</p>
         </div>
         {property?.attributes ? (
           <div className="grid gap-2">

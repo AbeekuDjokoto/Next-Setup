@@ -9,6 +9,7 @@ export function useUpdateProperty(
   refetchProperty: () => void,
   label: string,
   propertyImages: string[] = [],
+  propertyName: string,
 ) {
   const [files, setFiles] = React.useState([]);
   const { showModal, contentType, openModal, closeModal } = useModal();
@@ -32,7 +33,7 @@ export function useUpdateProperty(
     },
   });
 
-  const { mutate: onUpdatePropertyImage, isPending: isLoadingUploadImage } = useMutation({
+  const { mutateAsync: onUpdatePropertyImage, isPending: isLoadingUploadImage } = useMutation({
     mutationFn: (formData: any) => {
       return httpClient.put(`/host/properties/${propertySlug}/image`, formData);
     },
@@ -41,16 +42,20 @@ export function useUpdateProperty(
       refetchProperty();
       setFiles([]);
       closeModal();
-      nextFn();
+      // nextFn();
     },
     onError: async (data) => {
       errorToast('Failed to update property images');
     },
   });
 
+  const propertySlugName = propertyName?.toLowerCase().split(' ').join('-');
+
   const handlePropertyImageUpload = async () => {
     const newfiles = files.map((file: File, idx) => {
-      return new File([file], `${idx}-image`, { type: file.type });
+      return new File([file], `${propertySlugName}-${idx}-image`, {
+        type: file.type,
+      });
     });
 
     const formData = new FormData();
@@ -63,7 +68,7 @@ export function useUpdateProperty(
       return;
     }
 
-    onUpdatePropertyImage(formData);
+    await onUpdatePropertyImage(formData);
   };
 
   return {

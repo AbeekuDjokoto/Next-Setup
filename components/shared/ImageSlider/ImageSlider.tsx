@@ -6,9 +6,19 @@ import { useModal } from '@/hooks/shared';
 import { Modal } from '@/components/shared/Modal';
 import { PropertyCarousel } from '@/components/shared/PropertyCarousel';
 
-function ImageSlider({ images: imgs = [] }: { images: string[] }) {
+function ImageSlider({
+  images: imgs = [],
+  propertyName,
+  propertyLocation,
+}: {
+  images: string[];
+  propertyName?: string;
+  propertyLocation?: string;
+}) {
   const [active, setActive] = React.useState(() => imgs[0]);
   const { showModal, closeModal, contentType, openModal } = useModal();
+
+  console.log('pppName', propertyName);
 
   React.useEffect(() => {
     setActive(imgs[0]);
@@ -22,12 +32,12 @@ function ImageSlider({ images: imgs = [] }: { images: string[] }) {
             <img
               onClick={() => openModal('open-modal')}
               src={active}
-              alt="ownkey"
+              alt={`${propertyName} in ${propertyLocation} - Photo 1 of ${imgs.length} on Ownkey`}
               className="w-full h-full object-contain cursor-pointer object-center"
             />
           </div>
           <div className="flex md:flex-col gap-2 md:h-[600px] overflow-y-auto noscroll-indicator">
-            {imgs.map((image) => {
+            {imgs.map((image, index) => {
               return (
                 <div
                   onClick={() => setActive(image)}
@@ -38,7 +48,11 @@ function ImageSlider({ images: imgs = [] }: { images: string[] }) {
                       'bg-blue-100 border-[4px] border-blue-100': image === active,
                     },
                   )}>
-                  <img src={image} alt="ownkey" className="w-full h-full object-fill" />
+                  <img
+                    src={image}
+                    alt={`${propertyName} in ${propertyLocation} - Photo ${index + 1} of ${imgs.length} on Ownkey`}
+                    className="w-full h-full object-fill"
+                  />
                 </div>
               );
             })}

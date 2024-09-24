@@ -12,6 +12,7 @@ import { Modal } from '@/components/shared';
 import { EditPropertyDetails } from '../ReviewAddPropertyForms/EditPropertyDetails';
 import { PropertyType } from '@/types';
 import { BathIcon, BedIcon, ParkingIcon } from '@/public/assets/icons';
+import { sortImagesInOrder } from '@/utils';
 interface Props {
   isLoading: boolean;
   property?: PropertyType;
@@ -63,13 +64,17 @@ export function Review({
     openModal('open-edit-features');
   }
 
+  console.log('properties', negotiable);
+
+  const propertyImages = sortImagesInOrder(property?.images ?? []);
+
   return (
     <>
       <div className="grid gap-6">
         <div className="flex gap-6 items-center">
           <div className="h-[150px] w-[150px] bg-blue-200">
             <img
-              src={(property && property?.images && property?.images[0]) ?? ''}
+              src={(property && propertyImages && propertyImages[0]) ?? ''}
               alt={property?.name}
               className="w-full h-full object-cover"
             />
@@ -102,11 +107,17 @@ export function Review({
               <Accordion key={item.id} id={item.id} title={item.label}>
                 {item.label === 'Media' && (
                   <div className="flex flex-wrap gap-2 w-full">
-                    {item?.data[0].value.map((img: string) => (
-                      <div key={img} className="h-[120px] w-[150px] bg-blue-200">
-                        <img src={img} alt="property image" className='className="w-full h-full object-cover" ' />
-                      </div>
-                    ))}
+                    {sortImagesInOrder(item?.data[0].value)
+                      .filter((img): img is string => !!img)
+                      .map((img) => (
+                        <div key={img} className="h-[120px] w-[150px] bg-blue-200">
+                          <img
+                            src={img}
+                            alt="property image"
+                            className='className="w-full h-full object-cover" '
+                          />
+                        </div>
+                      ))}
                   </div>
                 )}
                 {item.label === 'Property Info' && (
