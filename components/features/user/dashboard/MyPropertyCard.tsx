@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { BedIcon, BathIcon, ParkingIcon, AreaIcon } from '@/public/assets/icons';
-import { ROUTES, formatCurrency, formatDateString, getBasicAmenities } from '@/utils';
+import {
+  ROUTES,
+  formatCurrency,
+  formatDateString,
+  getBasicAmenities,
+  sortImagesInOrder,
+} from '@/utils';
 import { XCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useWishlist } from '@/hooks/shared';
@@ -26,7 +32,7 @@ function MyPropertyCard({ property, className, isWishlist, wishlistId }: Props) 
           )}>
           <div className="relative placeholder:w-[40%] p-2">
             <Image
-              src={(property && property.images && property?.images[0]) || ''}
+              src={(property && property.images && sortImagesInOrder(property?.images)[0]) || ''}
               alt={property?.name}
               className="object-cover rounded-lg h-full"
               width={0.4 * 384}

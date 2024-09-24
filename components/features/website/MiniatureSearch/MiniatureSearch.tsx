@@ -4,7 +4,7 @@ import React from 'react';
 import { useTabs, useFilteredProperties } from '@/hooks/shared';
 import { Icons, TabsUnderline } from '@/components/shared';
 import { SearchFilter } from './SearchFilter';
-import { ROUTES } from '@/utils';
+import { ROUTES, sortImagesInOrder } from '@/utils';
 import { useRouter } from 'next/navigation';
 
 export function MiniatureSearch() {
@@ -62,7 +62,12 @@ export function MiniatureSearch() {
                         key={property.slug}
                         className="flex gap-2">
                         <img
-                          src={(property && property.images && property?.images[0]) || ''}
+                          src={
+                            (property &&
+                              property.images &&
+                              sortImagesInOrder(property?.images)[0]) ||
+                            ''
+                          }
                           alt={'image'}
                           className="object-cover  h-12 w-[52px] rounded"
                         />

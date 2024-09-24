@@ -22,7 +22,7 @@ import {
 } from '@/components/shared';
 import { useProperties } from '@/hooks/user';
 import PlusIcon from '@/public/assets/icons/circle-plus-solid.svg';
-import { getStatusVariant } from '@/utils';
+import { getStatusVariant, sortImagesInOrder } from '@/utils';
 import { useModal } from '@/hooks/shared';
 import { usePropertyTypes } from '@/hooks/admin';
 import { useAuthStore } from '@/stores';
@@ -68,7 +68,7 @@ function Properties() {
         id: slug,
         image: (
           <img
-            src={(images && images[0]) || ''}
+            src={(images && sortImagesInOrder(images)[0]) || ''}
             alt={name}
             className="w-[90px] h-[40px] object-cover"
           />

@@ -208,10 +208,14 @@ export function getAmenitiesProperties(
   }
 
   if (includeDefault) {
+    console.log('defaultAmenities', defaultAmenities);
+    console.log('amenities', amenities);
     otherAmenities = amenities.filter((item) => defaultAmenitySlugs.includes(item.slug));
   } else {
     otherAmenities = amenities.filter((item) => !defaultAmenitySlugs.includes(item.slug));
   }
+
+  // console.log('otherAmenities', otherAmenities);
   return otherAmenities;
 }
 
@@ -268,7 +272,7 @@ export function getBasicAmenities(amenities?: Amenity[]) {
   }
   let attr = ['bedrooms', 'bathrooms', 'parking', 'land size'];
   for (let item of amenities) {
-    let key = item?.name.toLowerCase() ?? '';
+    let key = item?.name?.toLowerCase() ?? '';
     if (attr.includes(key) && item.value) {
       obj[key] = item.value;
     }
