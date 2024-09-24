@@ -54,7 +54,11 @@ function SingleProperty({ property }: { property: any }) {
           {isLoading ? (
             <Skeleton className="h-[600px]" />
           ) : (
-            <ImageSlider images={(propertyImages as string[]) || []} />
+            <ImageSlider
+              images={(propertyImages as string[]) || []}
+              propertyName={property?.name}
+              propertyLocation={`${property?.location?.city}, ${property?.location?.country}`}
+            />
           )}
           {isLoading ? (
             <>
