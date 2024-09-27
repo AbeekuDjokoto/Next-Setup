@@ -4,28 +4,30 @@ import { Agent, BlogCard, BlogCategories, Property } from '@/types/blog';
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
-async function fetchData() {
+async function fetchData(page: number) {
+  const pageSize = 10;
   try {
     const blogQuery = `
-      *[_type == 'blog'] | order(_createdAt desc) {
-        title,
-        smallDescription,
-        "currentSlug": slug.current,
-        titleImage,
-        "category": category->title,
-        "date": _createdAt,
-        "author": author->name,
-        viewCount
-      }`;
-
+    *[_type == 'blog'] | order(_createdAt desc)[${(page - 1) * pageSize}...${page * pageSize}] {
+      title,
+      smallDescription,
+      "currentSlug": slug.current,
+      titleImage,
+      "category": category->title,
+      "date": _createdAt,
+      "author": author->name,
+      viewCount
+    }`;
+    const countBlogQuery = `count(*[_type == 'blog'])`;
     const categoriesQuery = `
       *[_type == 'categories'] | order(index asc){
         title,
         subTitle
       }`;
 
-    const [blogsData, categoriesData] = await Promise.all([
+    const [blogsData, totalPosts, categoriesData] = await Promise.all([
       client.fetch(blogQuery),
+      client.fetch(countBlogQuery),
       client.fetch(categoriesQuery),
     ]);
 
@@ -38,6 +40,7 @@ async function fetchData() {
 
     return {
       blogs: blogsData as BlogCard[],
+      totalPosts,
       categories: categoriesData as BlogCategories[],
       properties,
       agents,
@@ -48,13 +51,15 @@ async function fetchData() {
   }
 }
 
-export default async function BlogPage() {
-  const { blogs, properties, agents, categories } = await fetchData();
-  console.log(properties)
+export default async function BlogPage({ searchParams }: any) {
+  const page = parseInt(searchParams.page as string) || 1;
+  const { blogs, totalPosts, properties, agents, categories } = await fetchData(page);
+
   return (
     <div className="container">
       <ListBlogWrapper
         blogs={blogs}
+        totalPosts={totalPosts}
         categories={categories}
         agents={agents}
         properties={properties}

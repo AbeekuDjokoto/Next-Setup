@@ -1,13 +1,8 @@
 'use client';
 
-import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon } from '@/public/assets/icons';
+import { FacebookIcon, LinkedinIcon, XIcon } from '@/public/assets/icons';
 import { usePathname } from 'next/navigation';
-import {
-  FacebookShareButton,
-  InstapaperShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from 'react-share';
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 export const BlogSocialShare = () => {
   const pathname = usePathname();
@@ -43,14 +38,14 @@ export const BlogSocialShare = () => {
             <XIcon className="w-3 h-3" />
           </TwitterShareButton>
         </div>
-        <div className="bg-black text-white rounded-md">
+        {/* <div className="bg-black text-white rounded-md">
           <InstapaperShareButton
             url={propertyUrl}
             title={initialMessage}
             className="!p-2 !flex !gap-1 !items-center !h-full !w-full">
             <InstagramIcon className="w-3 h-3" />
           </InstapaperShareButton>
-        </div>
+        </div> */}
       </div>
     </div>
   );
