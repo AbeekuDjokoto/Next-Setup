@@ -1,3 +1,5 @@
+import {Amenity} from '.'
+
 export interface Agent {
   user: {
     firstname: string;
@@ -42,11 +44,7 @@ export interface Property {
   price: string;
   currency: string;
   leasing: string;
-  property_amenities: {
-    name: string;
-    value: any;
-    icon: string;
-  }[];
+  property_amenities: Amenity[]
 }
 
 export interface BlogCategories {

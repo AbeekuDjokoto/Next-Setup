@@ -7,7 +7,7 @@ interface Props {
 export const BlogDetailsJumbotron = ({ title, category, _createdAt }: Props) => {
   return (
     <div>
-      <div className="text-[46px] max-w-3xl font-bold">
+      <div className="text-[30px] md:text-[46px] max-w-3xl font-bold">
         <h2>{title}</h2>
       </div>
       <p className="flex gap-5 mt-7">

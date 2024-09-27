@@ -1,14 +1,15 @@
 'use client';
-import { Button, Modal, Popover, PopoverContent, PopoverTrigger } from '@/components/shared';
 
-import { WhatsAppIcon, Phone, Envelope } from '@/public/assets/icons/index';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { InfoIcon } from 'lucide-react';
-import { ROUTES } from '@/utils';
-import { useAuthStore } from '@/stores';
+import { Button, Modal } from '@/components/shared';
 import { useModal } from '@/hooks';
+import { cn } from '@/lib/utils';
+import { Envelope, Phone, WhatsAppIcon } from '@/public/assets/icons/index';
+import { useAuthStore } from '@/stores';
+import { ROUTES } from '@/utils';
+import { InfoIcon } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+
+import Link from 'next/link';
 
 export function ContactOwnkey() {
   const pathname = usePathname();
