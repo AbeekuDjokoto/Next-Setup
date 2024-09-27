@@ -53,6 +53,7 @@ export default async function AuthorBlogPage({ params }: { params: { slug: strin
   return (
     <div className="container">
       <ListBlogWrapper
+        totalPosts={blogs.length}
         blogs={blogs}
         categories={categories}
         agents={agents}

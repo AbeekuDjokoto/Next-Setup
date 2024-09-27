@@ -2,6 +2,7 @@
 
 import { AgentsCard } from '@/components/features/blog/Agents';
 import { ArticleCard } from '@/components/features/blog/ArticleCard';
+import { BlogPagination } from '@/components/features/blog/BlogPagination';
 import { BlogTag } from '@/components/features/blog/BlogTags';
 import { Jumbotron } from '@/components/features/blog/Jumbotron';
 import { PropertyListing } from '@/components/features/blog/PropertyListing';
@@ -14,9 +15,10 @@ interface Props {
   categories: BlogCategories[];
   properties: Property[];
   agents: Agent[];
+  totalPosts: number;
 }
 
-export const ListBlogWrapper = ({ blogs, properties, agents, categories }: Props) => {
+export const ListBlogWrapper = ({ blogs, properties, agents, categories, totalPosts }: Props) => {
   const [filteredBlogs, setFilteredBlogs] = useState(blogs);
   const [activeCategory, setActiveCategory] = useState<BlogCategories>({
     title: 'Home',
@@ -62,9 +64,9 @@ export const ListBlogWrapper = ({ blogs, properties, agents, categories }: Props
         onSearch={handleSearch}
       />
 
-      <div className="block md:grid grid-cols-5 mt-28 gap-20">
+      <div className="block lg:grid grid-cols-5 mt-28 gap-20">
         <div className="col-span-3">
-          {filteredBlogs.slice(0, 5).map((post, idx) => (
+          {filteredBlogs.map((post, idx) => (
             <ArticleCard
               key={idx}
               title={post.title}
@@ -77,7 +79,7 @@ export const ListBlogWrapper = ({ blogs, properties, agents, categories }: Props
             />
           ))}
 
-          {/* <ArticlePagination /> */}
+          <BlogPagination initialPosts={blogs} totalPosts={totalPosts} />
         </div>
 
         <div className="col-span-2">

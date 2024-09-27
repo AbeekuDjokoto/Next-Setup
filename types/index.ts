@@ -6,6 +6,7 @@ export type Amenity = {
   slug: string;
   name: string;
   meta: string;
+  value: any;
   type: { slug: string; name: string; desc: string };
 };
 

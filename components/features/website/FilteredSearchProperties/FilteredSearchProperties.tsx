@@ -1,18 +1,17 @@
 'use client';
 
-import React from 'react';
 import { MyPropertyCard } from '@/components/features/user';
 import {
-  PropertyCardGrid,
-  ViewType,
   ClientPagination,
+  PropertyCardGrid,
   PropertyListSkeleton,
+  ViewType,
 } from '@/components/shared';
 import { useFilteredProperties } from '@/hooks/shared';
 import EmptyHouse from '@/public/assets/icons/house-empty.svg';
+import React from 'react';
 import { MainSearch } from '../MainSearch';
 // import GoogleMap from '@/components/shared/Map/GoogleMap';
-import DrawableMap from '@/components/shared/Map/DrawableMap';
 
 export function FilteredSearchProperties() {
   const [viewType, setViewType] = React.useState<string>('grid');

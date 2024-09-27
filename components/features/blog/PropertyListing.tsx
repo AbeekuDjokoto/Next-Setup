@@ -1,4 +1,6 @@
+import { AreaIcon, BathIcon, BedIcon, ParkingIcon } from '@/public/assets/icons';
 import { Property } from '@/types/blog';
+import { getBasicAmenities } from '@/utils';
 
 import Image from 'next/image';
 
@@ -51,14 +53,32 @@ export const PropertyListing = ({
               {location.city}, {location.country}
             </p>
             <div className="text-sm mt-3 flex gap-2">
-              {property_amenities.length > 0 &&
-                property_amenities.slice(0, 2).map((a, idx) => (
-                  <div key={idx} className="flex gap-1 items-center w-full">
-                    {a.icon && <Image src={a.icon} alt="Logo" width={20} height={20} />}
-                    <span>{a.value}</span>
-                    <span>{a.name}</span>
+              <div className="flex gap-4 items-center">
+                {getBasicAmenities(property_amenities)['bedrooms'] ? (
+                  <div className="flex items-center gap-2">
+                    <BedIcon className="w-5 h-5" />{' '}
+                    {getBasicAmenities(property_amenities)['bedrooms'] ?? '-'}
                   </div>
-                ))}
+                ) : null}
+                {getBasicAmenities(property_amenities)['land size'] ? (
+                  <div className="flex items-center gap-2">
+                    <AreaIcon className="w-5 h-5" />{' '}
+                    {getBasicAmenities(property_amenities)['land size'] ?? '-'}
+                  </div>
+                ) : null}
+                {getBasicAmenities(property_amenities)['bathrooms'] ? (
+                  <div className="flex items-center gap-2">
+                    <BathIcon className="w-5 h-5" />{' '}
+                    {getBasicAmenities(property_amenities)['bathrooms'] ?? '-'}
+                  </div>
+                ) : null}
+                {getBasicAmenities(property_amenities)['parking'] ? (
+                  <div className="flex items-center gap-2">
+                    <ParkingIcon className="w-5 h-5" />{' '}
+                    {getBasicAmenities(property_amenities)['parking'] ?? '-'}
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
 

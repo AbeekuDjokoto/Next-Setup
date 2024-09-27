@@ -39,6 +39,14 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alt Text',
+          description: 'Important for SEO and accessibility',
+        },
+      ],
     },
     {
       name: 'publishedAt',
@@ -70,6 +78,17 @@ export default {
         },
         {
           type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt Text',
+              description: 'Important for SEO and accessibility',
+            },
+          ],
         },
       ],
     },
