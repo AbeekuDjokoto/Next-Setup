@@ -54,7 +54,7 @@ export const ListBlogWrapper = ({ blogs, properties, agents, categories, totalPo
   };
 
   return (
-    <>
+    <div>
       <div className="mt-10 pb-2 border-b-[1px] border-black">
         <BlogTag onFilter={handleFilter} categories={categories} />
       </div>
@@ -103,11 +103,17 @@ export const ListBlogWrapper = ({ blogs, properties, agents, categories, totalPo
           <div className="max-w-sm">
             <p className="font-semibold mb-8 text-xl">Top Agents</p>
             {agents.map((a, idx) => (
-              <AgentsCard key={idx} user={a.user} total_rating={0} type={a.type} />
+              <AgentsCard
+                key={idx}
+                user={a.user}
+                total_rating={0}
+                type={a.type}
+                host_user_name={a.host_user_name}
+              />
             ))}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

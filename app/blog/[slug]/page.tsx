@@ -134,11 +134,11 @@ const portableTextComponents = {
   },
   block: {
     p: ({ children }: any) => <p className="text-base mb-[1rem]">{children}</p>,
-    h2: ({ children }: any) => <h2 className="mb-[1.2rem]">{children}</h2>,
-    h3: ({ children }: any) => <h3 className="mb-[1.1rem]">{children}</h3>,
-    h4: ({ children }: any) => <h4 className="mb-[1rem]">{children}</h4>,
-    h5: ({ children }: any) => <h5 className="mb-[0.9rem]">{children}</h5>,
-    h6: ({ children }: any) => <h6 className="mb-[0.8rem]">{children}</h6>,
+    h2: ({ children }: any) => <h2 className="mb-[1.2rem] text-[2.1rem]">{children}</h2>,
+    h3: ({ children }: any) => <h3 className="mb-[1.1rem] text-[1.7rem]">{children}</h3>,
+    h4: ({ children }: any) => <h4 className="mb-[1rem] text-[1.5rem]">{children}</h4>,
+    h5: ({ children }: any) => <h5 className="mb-[0.9rem] text-[1.3rem]">{children}</h5>,
+    h6: ({ children }: any) => <h6 className="mb-[0.8rem] text-[1.1rem]">{children}</h6>,
   },
   marks: {
     link: ({ children, value }: any) => {
@@ -226,7 +226,13 @@ export default async function BlogArticle({ params }: { params: { slug: string }
           <div className="max-w-sm">
             <p className="font-semibold mb-8 text-xl">Top Agents</p>
             {agents.map((a, idx) => (
-              <AgentsCard key={idx} user={a.user} total_rating={0} type={a.type} />
+              <AgentsCard
+                key={idx}
+                user={a.user}
+                total_rating={0}
+                type={a.type}
+                host_user_name={a.host_user_name}
+              />
             ))}
           </div>
         </div>

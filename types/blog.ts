@@ -11,6 +11,7 @@ export interface Agent {
   type: {
     name: string;
   };
+  host_user_name: string;
 }
 
 export interface BlogCard {
