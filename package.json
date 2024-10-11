@@ -75,6 +75,9 @@
     "sanity": "^3.52.2",
     "@sanity/table": "^1.1.2",
     "@sanity/vision": "^3.52.2",
+    "sanity-plugin-mux-input": "^2.3.6",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
+    "styled-components": "^6.1.8",
     "sass": "^1.77.8",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
@@ -86,6 +89,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@sanity/eslint-config-studio": "^4.0.0",
     "@next/eslint-plugin-next": "^14.2.5",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/eslint-plugin-query": "^5.52.0",
