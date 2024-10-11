@@ -33,6 +33,7 @@ export async function generateMetadata(
 
   return {
     title: data.title + ' | Ownkey',
+    description: data.smallDescription,
     // openGraph: {
     //   images: [propertyImages?.[0], ...previousImages],
     // },
