@@ -33,6 +33,7 @@ export async function generateMetadata(
 
   return {
     title: data.title + ' | Ownkey',
+    description: 'Ownkey is a platform that connects you to your dream property.'
     // openGraph: {
     //   images: [propertyImages?.[0], ...previousImages],
     // },
