@@ -8,13 +8,12 @@ import {
   PropertyLocationCard,
   RentSellCard,
 } from '@/components/shared';
-import { useSingleHost } from '@/hooks/user';
 import { sortImagesInOrder } from '@/utils';
 
 import Skeleton from 'react-loading-skeleton';
 
 function SingleProperty({ property }: { property: any }) {
-  const { host, isLoading } = useSingleHost(property?.host);
+  const isLoading = false;
   const propertyImages = sortImagesInOrder(property?.images);
 
   return (
@@ -36,7 +35,7 @@ function SingleProperty({ property }: { property: any }) {
             ) : (
               <div>
                 <p className="text-blue-950 font-bold mb-2">Listing Agent</p>
-                <HostCard host={host} type="client" />
+                <HostCard host={property?.host} type="client" />
               </div>
             )}
             {isLoading ? (
@@ -87,7 +86,7 @@ function SingleProperty({ property }: { property: any }) {
           ) : (
             <div>
               <p className="text-blue-950 font-bold mb-2">Listing Agent</p>
-              <HostCard host={host} type="client" />
+              <HostCard host={property?.host} type="client" />
             </div>
           )}
         </div>
