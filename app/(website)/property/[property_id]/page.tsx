@@ -1,8 +1,8 @@
 import { httpClient } from '@/config';
 import { Metadata, ResolvingMetadata } from 'next';
+import { sortImagesInOrder } from '@/utils';
 
 import SingleProperty from './SingleProperty';
-import { sortImagesInOrder } from '@/utils';
 
 const getData = async (slug: string | string[]) => {
   const res = await httpClient(`/property/${slug}`);
@@ -35,6 +35,6 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
   const { property_id } = params;
   const property = await getData(property_id);
-  console.log('property', property);
+
   return <SingleProperty property={property} />;
 }
