@@ -1,0 +1,7 @@
+.input:not(:placeholder-shown) + label {
+  @apply top-2 translate-y-0 text-xs;
+}
+
+.input:not(:placeholder-shown) {
+  @apply translate-y-2;
+}
