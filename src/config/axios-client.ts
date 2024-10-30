@@ -1,10 +1,10 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
 import { useAuthStore } from '@/stores';
-import { ENV_VARS } from '@/utils/constants';
+// import { ENV_VARS } from '@/utils/constants';
 
 const instance = axios.create({
-  baseURL: ENV_VARS.API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5200',
 });
 
 const CANCELLED_STATUS_CODE = 499;

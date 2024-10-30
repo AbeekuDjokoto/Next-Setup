@@ -1,0 +1,196 @@
+.btn {
+  --bg-green: #d9ecd4;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 130%;
+  padding: 0 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  &:active {
+    transform: scale(0.985);
+  }
+  &.outline {
+    color: var(--white);
+    border-radius: 9999px;
+    border: 2px solid var(--black-100);
+  }
+  &.outline-alt {
+    border: 2px solid var(--white);
+    border-radius: 9999px;
+  }
+  &.primary {
+    position: relative;
+    color: var(--white);
+    border-radius: 4px;
+    border: 1px solid var(--black);
+    background: var(--black);
+    z-index: 2;
+    overflow: hidden;
+
+    .green {
+      --size: 30px;
+      pointer-events: none;
+      height: var(--size);
+      width: var(--size);
+      border-radius: 1000px;
+      background: var(--primary);
+      position: absolute;
+      left: -40px;
+
+      top: -39px;
+      z-index: -1;
+
+      transition:
+        all 0.3s ease,
+        height 0.3s ease;
+    }
+
+    &:not(:disabled):hover .green {
+      --size: 110%;
+      padding-top: 70px;
+      left: -10%;
+      transform: translateY(39px);
+    }
+  }
+
+  &.tertiary {
+    color: var(--black);
+    border-radius: 49px;
+    background-color: var(--green-200);
+    border: 1px solid var(--primary);
+
+    &:not(:disabled):hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.outline {
+    color: var(--black);
+    border-radius: 80px;
+    border: 1px solid var(--black);
+    position: relative;
+    padding: 11px 16px;
+
+    &:not(:disabled):hover {
+      border: 3px solid var(--black);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid transparent;
+      border-radius: 80px;
+      transition: border 0.3s ease-in-out;
+    }
+
+    &:not(:disabled):hover:before {
+      border: 1px solid var(--black);
+    }
+  }
+  &.danger {
+    color: var(--white);
+    background-color: var(--error);
+    border-radius: 80px;
+    border: 1px solid var(--error);
+    position: relative;
+    padding: 11px 16px;
+
+    &:not(:disabled):hover {
+      border: 3px solid var(--error);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid transparent;
+      border-radius: 80px;
+      transition: border 0.3s ease-in-out;
+    }
+
+    &:not(:disabled):hover:before {
+      border: 1px solid var(--error);
+    }
+  }
+
+  &.white {
+    color: var(--primary-green);
+    background: var(--white);
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    &:not(:disabled):hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.transparent {
+    color: var(--white);
+
+    border: 1px solid var(--white);
+    border-radius: 8px;
+
+    &:not(:disabled):hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.loading {
+    padding-block: 12px;
+  }
+}
+
+.ldsRing {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  .div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    border: 2.5px solid var(--loader-bg);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--loader-bg) transparent transparent transparent;
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

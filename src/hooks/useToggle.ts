@@ -33,9 +33,7 @@ type ReturnWithToggleName<TName extends string> = {
  * This hook provides grouped functionality for toggling a state
  * @param toggleName - CamelCased/PascalCased name of the toggle
  */
-export function useToggle<TName extends string>(
-  _toggleName: TName,
-): ReturnWithToggleName<TName>;
+export function useToggle<TName extends string>(_toggleName: TName): ReturnWithToggleName<TName>;
 export function useToggle(): DefaultReturn;
 export function useToggle<TName extends string | undefined>(
   toggleName?: TName,

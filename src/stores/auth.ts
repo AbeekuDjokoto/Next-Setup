@@ -42,12 +42,9 @@ const authStore: StateCreator<State & Actions> = (set, get) => ({
   setRedirect: (redirect: string) => set({ redirect }),
   getToken: () => get().token,
   setToken: (newToken: string) => set({ token: newToken }),
-  updateUser: (user: Partial<User>) =>
-    set({ user: { ...get().user, ...user } as User }),
+  updateUser: (user: Partial<User>) => set({ user: { ...get().user, ...user } as User }),
 });
 
-const useAuthStore = create(
-  persist(authStore, { name: 'react-web-auth-store' }),
-);
+const useAuthStore = create(persist(authStore, { name: 'react-web-auth-store' }));
 
 export { useAuthStore };

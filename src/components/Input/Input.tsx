@@ -94,11 +94,7 @@ export const Input = React.forwardRef(function Input(
 
   return (
     /* WRAPPER */
-    <div
-      ref={wrapperRef}
-      className={cn('', className)}
-      onClick={handleWrapperClick}
-    >
+    <div ref={wrapperRef} className={cn('', className)} onClick={handleWrapperClick}>
       {/* INNER */}
       <div
         className={cn(
@@ -107,8 +103,7 @@ export const Input = React.forwardRef(function Input(
           'focus-within:ring-1 focus-within:ring-neutral-base/50',
           { 'ring-1 ring-error-500': !!error },
           { 'h-[56px]': !isTextarea },
-        )}
-      >
+        )}>
         {prefix}
 
         {/* TEXT FIELD */}
@@ -131,8 +126,7 @@ export const Input = React.forwardRef(function Input(
             className={computedInputClassName}
             ref={ref}
             id={id ?? otherProps.name}
-            {...otherProps}
-          ></textarea>
+            {...otherProps}></textarea>
         ) : null}
 
         {/* LABEL */}
@@ -146,8 +140,7 @@ export const Input = React.forwardRef(function Input(
               },
             )}
             htmlFor={props?.id ?? props.name}
-            onClick={handleLabelClick}
-          >
+            onClick={handleLabelClick}>
             {label}
           </label>
         ) : null}
@@ -157,8 +150,7 @@ export const Input = React.forwardRef(function Input(
           <button
             type="button"
             className="text-base-500 grid h-6 w-6 place-content-center text-base"
-            onClick={handleToggleShow}
-          >
+            onClick={handleToggleShow}>
             {!show ? <Eye size={24} className="text-neutral-400" /> : null}
             {show ? <EyeSlash size={24} className="text-neutral-400" /> : null}
           </button>
@@ -166,9 +158,7 @@ export const Input = React.forwardRef(function Input(
       </div>
 
       {/* MESSAGE */}
-      {error && typeof error === 'string' ? (
-        <p className="mt-1 text-error-500">{error}</p>
-      ) : null}
+      {error && typeof error === 'string' ? <p className="mt-1 text-error-500">{error}</p> : null}
     </div>
   );
 });

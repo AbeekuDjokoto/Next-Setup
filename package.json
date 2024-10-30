@@ -8,7 +8,8 @@
     "build": "vite build",
     "start": "vite preview",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "update-icons": "node scripts/update-icon-names && yarn lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -36,6 +37,7 @@
     "react-hook-form": "^7.53.0",
     "react-router": "^6.26.1",
     "react-router-dom": "^6.26.1",
+    "sass": "^1.80.4",
     "tailwind-merge": "^2.5.2",
     "validator": "^13.12.0",
     "vite-plugin-eslint": "^1.8.1",

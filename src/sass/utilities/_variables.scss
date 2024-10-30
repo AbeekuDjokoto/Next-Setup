@@ -1,0 +1,44 @@
+:root {
+  --font-Montserrat: 'Montserrat';
+}
+
+
+$black: #020817;
+$black-100: #1B1B1B;
+$black-200: #191414;
+$blue: #172554;
+$blue-100: #4561EC;
+$border-color: #E5E7EB;
+$red: #D62251;
+$red-100: #C92251;
+$white: #ffffff;
+$white-100: #F2f2f2;
+$max-width: 1440px;
+
+html {
+  --black: #020817;
+  --black-100: #1B1B1B;
+  --black-200: #191414;
+  --blue: #172554;
+  --blue-100: #4561EC;
+  --border-color: #E5E7EB;
+  --max-width: 1440px;
+  --red: #D62251;
+  --red-100: #C92251;
+  --white: #ffffff;
+  --white-100: #F2f2f2;
+}
+
+body {
+  font-family: var(--font-Montserrat), sans-serif;
+}
+
+.headings {
+  font-family: var(--font-fidena), sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
