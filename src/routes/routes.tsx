@@ -35,10 +35,6 @@ export const routes: RouteObject[] = [
         element: <FAQ />,
       },
       {
-        path: ROUTES.CONTACT_SUPPORT,
-        element: <ContactSupport />,
-      },
-      {
         path: ROUTES.SEARCH,
         element: <SearchPage />,
       },
@@ -47,5 +43,9 @@ export const routes: RouteObject[] = [
         element: <div>404</div>,
       },
     ],
+  },
+  {
+    path: ROUTES.CONTACT_SUPPORT,
+    element: <ContactSupport />,
   },
 ];

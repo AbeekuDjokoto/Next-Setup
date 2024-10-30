@@ -6,3 +6,4 @@ export { default as manInSuit } from './man-in-suit.png';
 export { default as property } from './property.png';
 export { default as fatherHelpingChild } from './father-helping-daughter.png';
 export { default as leadership } from './leadership.png';
+export { default as contactImage } from './contact-image.png';

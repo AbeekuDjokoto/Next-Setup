@@ -12,5 +12,7 @@ export type IconNames =
   | 'Linkedin'
   | 'LogoHorizontalBlack'
   | 'Logo'
+  | 'Mail'
   | 'RightArrowWithout'
+  | 'Telephone'
   | 'Twitter';

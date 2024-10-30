@@ -38,7 +38,9 @@ export function Footer() {
                 <div className="w-1 h-1 bg-black rounded-full" />
                 <li className="link_hover pb-1 cursor-pointer">Blog</li>
                 <div className="w-1 h-1 bg-black rounded-full" />
-                <li className="link_hover pb-1 cursor-pointer">Contact Us</li>
+                <Link to={ROUTES.CONTACT_SUPPORT} className="link_hover pb-1">
+                  Contact Us
+                </Link>
               </ul>
             </div>
             <div className="text-[var(--black-100)] flex flex-col justify-between">
@@ -52,15 +54,15 @@ export function Footer() {
           <div className="flex justify-between items-end">
             <div className="flex flex-col gap-4">
               <ul className="flex gap-2 items-center">
-                <Link to={ROUTES.TERMS_AND_CONDITIONS} className="link_hover pb-1 cursor-pointer">
+                <Link to={ROUTES.TERMS_AND_CONDITIONS} className="link_hover pb-1">
                   Terms
                 </Link>
                 <div className="w-1 h-1 bg-black rounded-full" />
-                <Link to={ROUTES.PRIVACY_POLICY} className="link_hover pb-1 cursor-pointer">
+                <Link to={ROUTES.PRIVACY_POLICY} className="link_hover pb-1">
                   Privacy
                 </Link>
                 <div className="w-1 h-1 bg-black rounded-full" />
-                <Link to={ROUTES.FAQ} className="link_hover pb-1 cursor-pointer">
+                <Link to={ROUTES.FAQ} className="link_hover pb-1">
                   FAQs
                 </Link>
               </ul>
