@@ -1,6 +1,8 @@
 export type IconNames =
+  | 'AddIcon'
   | 'AppStore'
   | 'Avatar'
+  | 'CloseIcon'
   | 'Facebook'
   | 'GooglePlay'
   | 'HamburgerMenu'

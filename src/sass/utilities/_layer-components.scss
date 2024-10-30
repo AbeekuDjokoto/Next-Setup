@@ -92,6 +92,12 @@
     max-width: $max-width;
   }
 
+  .flexColumnSpaceBetween {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .ellipse-md {
     background-color: #f2fdfb1a;
     width: clamp(175px, 25vw + 1px, 268px);

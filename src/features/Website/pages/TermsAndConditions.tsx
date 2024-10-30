@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { TERMS_AND_CONDITIONS } from '@/mocks/terms-and-conditions';
+import { TERMS_AND_CONDITIONS } from '@/mocks';
 
 export function TermsAndConditions() {
   return (

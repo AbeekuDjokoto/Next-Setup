@@ -56,9 +56,13 @@ export function Footer() {
                   Terms
                 </Link>
                 <div className="w-1 h-1 bg-black rounded-full" />
-                <li className="link_hover pb-1 cursor-pointer">Privacy</li>
+                <Link to={ROUTES.PRIVACY_POLICY} className="link_hover pb-1 cursor-pointer">
+                  Privacy
+                </Link>
                 <div className="w-1 h-1 bg-black rounded-full" />
-                <li className="link_hover pb-1 cursor-pointer">FAQS</li>
+                <Link to={ROUTES.FAQ} className="link_hover pb-1 cursor-pointer">
+                  FAQs
+                </Link>
               </ul>
               <div>
                 <div className="flex flex-col gap-10">

@@ -4,3 +4,4 @@ export * from './Navbar';
 export * from './Footer';
 export * from './Icon';
 export * from './Button';
+export * from './Accordion';
