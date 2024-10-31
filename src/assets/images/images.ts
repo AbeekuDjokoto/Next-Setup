@@ -7,3 +7,6 @@ export { default as property } from './property.png';
 export { default as fatherHelpingChild } from './father-helping-daughter.png';
 export { default as leadership } from './leadership.png';
 export { default as contactImage } from './contact-image.png';
+export { default as header2 } from './header_2.png';
+export { default as header1 } from './header-1.png';
+export { default as noThumbnail } from './no-thumbnail.png';

@@ -1,21 +1,37 @@
-import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 import { useAuthStore } from '@/stores';
-// import { ENV_VARS } from '@/utils/constants';
+import { ROUTES } from '@/utils';
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5200',
+  baseURL: 'http://localhost:5200',
 });
 
 const CANCELLED_STATUS_CODE = 499;
-function errorHandler(error: AxiosError) {
+function errorHandler(error: any) {
   let { status } = error.response || {};
   status = error.code === 'ERR_CANCELED' ? CANCELLED_STATUS_CODE : status;
 
-  if (status === 401 && !window.location.pathname.includes('auth')) {
-    window.location.pathname = '/auth/login';
+  const { reset } = useAuthStore();
+
+  if (status === 401) {
+    if (
+      window.location.pathname.includes('user/host') &&
+      !window.location.pathname.includes('auth')
+    ) {
+      reset();
+      window.location.pathname = ROUTES.USER.HOST.AUTH.LOGIN;
+    }
+    if (
+      window.location.pathname.includes('user/client') &&
+      !window.location.pathname.includes('auth')
+    ) {
+      reset();
+      window.location.pathname = ROUTES.USER.CLIENT.AUTH.LOGIN;
+    }
   }
 
+  // eslint-disable-next-line no-throw-literal
   throw {
     status,
     ...(error?.response?.data || {
@@ -24,22 +40,26 @@ function errorHandler(error: AxiosError) {
   };
 }
 
-instance.interceptors.request.use((request: InternalAxiosRequestConfig<any>) => {
-  const token = useAuthStore.getState()?.token;
-
-  if (token) request.headers['Authorization'] = `Bearer ${token}`;
-
-  return request;
+instance.interceptors.request.use((request: any) => {
+  const headers = request.headers;
+  const accessToken = useAuthStore.getState()?.accessToken;
+  return {
+    ...request,
+    headers: {
+      ...headers,
+      Authorization: accessToken ? `Bearer ${accessToken}` : '',
+    },
+  };
 });
 
 instance.interceptors.response.use(
   (response) => {
     const setToken = useAuthStore.getState().setToken;
     const { data } = response;
-    if (data?.token) setToken(data.token);
+    if (data?.accessToken) setToken(data.accessToken);
     return data;
   },
   (error) => errorHandler(error),
 );
 
-export { instance as axiosClient };
+export { instance as httpClient };

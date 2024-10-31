@@ -7,8 +7,8 @@ import { ROUTES } from '@/utils';
 export function ContactSupport() {
   return (
     <div className="h-screen flex overflow-y-hidden">
-      <div className="w-full max-w-[600px]">
-        <img src={contactImage} alt="contact image" className="w-full" />
+      <div className="w-full lg:max-w-[600px] h-full hidden lg:block">
+        <img src={contactImage} alt="contact image" className="w-full h-full" />
       </div>
       <div className="pt-6 pb-[64px] px-10 wrapper h-full flexColumnSpaceBetween">
         <Link to={ROUTES.WEBSITE}>
@@ -25,8 +25,8 @@ export function ContactSupport() {
           <p className="text-sm">Let’s connect today!</p>
         </div>
 
-        <div className="flex justify-between">
-          <div className="flex flex-col gap-4 max-w-[340px] w-full">
+        <div className="grid grid-cols-1 md:grid-cols-[repeat(2,minmax(0,340px))] gap-6 justify-between">
+          <div className="flex flex-col gap-4">
             <div className="flex gap-2 items-center">
               <div className="w-2 h-2 bg-[var(--red)] rounded-full" />
               <p className="uppercase text-sm font-medium">Contact us</p>
@@ -47,7 +47,7 @@ export function ContactSupport() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4 max-w-[340px] w-full items-end">
+          <div className="flex flex-col gap-4 md:items-end">
             <div className="flex gap-2 items-center">
               <div className="w-2 h-2 bg-[var(--red)] rounded-full" />
               <p className="uppercase text-sm font-medium">Work hours</p>
@@ -58,7 +58,7 @@ export function ContactSupport() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-[repeat(2,minmax(0,340px))] gap-6 justify-between">
           <div className="flex flex-col gap-4 max-w-[340px] w-full">
             <div className="flex gap-2 items-center">
               <div className="w-2 h-2 bg-[var(--red)] rounded-full" />
@@ -74,7 +74,7 @@ export function ContactSupport() {
               <p className="text-base">3rd link street, Spintex rd, Accra</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4 max-w-[340px] w-full items-end">
+          <div className="flex flex-col gap-4 max-w-[340px] w-full md:items-end">
             <div className="flex gap-2 items-center">
               <div className="w-2 h-2 bg-[var(--red)] rounded-full" />
               <p className="uppercase text-sm font-medium">Commericial Request?</p>

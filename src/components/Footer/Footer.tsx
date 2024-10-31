@@ -11,7 +11,7 @@ import { Input } from '../Input';
 export function Footer() {
   return (
     <footer>
-      <div className="px-4 flex flex-col gap-10">
+      <div className="px-4 pt-[114px] flex flex-col gap-10">
         <div className="grid grid-cols-4 justify-between">
           {FOOTER_LINKS.map((link) => (
             <div key={link.title} className="flex flex-col gap-6">
